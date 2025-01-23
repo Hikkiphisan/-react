@@ -54,7 +54,7 @@ export default function ValidateLoginFormik() {
                     value={values.email || ""} //để đảm bảo trường nhập liệu luônc có giá trị , kể cả chuỗi rỗng.
                     onChange={handleChange}
                  />
-                 <p className="error">{email.email}</p>  {/* {//hiển thị thông báo lỗi nếu có */}
+                 {/* <p className="error">{email.email}</p>  {//hiển thị thông báo lỗi nếu có */}
                  
              </div>
 
@@ -85,7 +85,7 @@ export default function ValidateLoginFormik() {
 
 
         </div>
-    );
+    )
 
 
 }
