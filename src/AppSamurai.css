@@ -1,0 +1,191 @@
+/* Samurai theme variables */
+:root {
+    --primary: #c41e3a; /* Japanese red */
+    --secondary: #2c2c2c; /* Dark gray */
+    --accent: #d4af37; /* Gold */
+    --paper: #f4e4bc; /* Scroll paper */
+    --ink: #000000; /* Ink black */
+  }
+  
+  /* Container styles */
+  .container {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://wallpaperaccess.com/full/31189.jpg');
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Form container */
+  form {
+    background: var(--paper);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(196, 30, 58, 0.3);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    animation: unfoldScroll 1s ease-out;
+    border: 2px solid var(--accent);
+  }
+  
+  /* Title styling */
+  h1 {
+    color: var(--paper);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px var(--primary);
+    margin-bottom: 30px;
+    position: relative;
+    animation: fadeInTitle 1.5s ease-out;
+  }
+  
+  /* Input container */
+  .custom-input {
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  /* Label styling */
+  .custom-input label {
+    color: var(--secondary);
+    font-size: 0.9em;
+    transform-origin: left;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+  }
+  
+  /* Input field */
+  .custom-input input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--secondary);
+    color: var(--ink);
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-input input:focus {
+    border-bottom-color: var(--primary);
+    outline: none;
+  }
+  
+  /* Error state */
+  .custom-input-error input {
+    border-bottom-color: var(--primary);
+  }
+  
+  .error {
+    color: var(--primary);
+    font-size: 0.8em;
+    margin-top: 5px;
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button[type="submit"]:hover {
+    background: #a01830;
+    transform: translateY(-2px);
+  }
+  
+  button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+  }
+  
+  button[type="submit"]:hover::after {
+    animation: swordSlash 1s ease-out;
+  }
+  
+  /* Animations */
+  @keyframes unfoldScroll {
+    from {
+      transform: scale(0.9) translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInTitle {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes swordSlash {
+    from {
+      transform: translateX(-150%) rotate(45deg);
+    }
+    to {
+      transform: translateX(150%) rotate(45deg);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Ink brush effect on focus */
+  .custom-input input:focus ~ label {
+    color: var(--primary);
+    transform: scale(1.1);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    form {
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 2em;
+    }
+  }

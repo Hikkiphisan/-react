@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./App.css";
+import "./AppSamurai.css";
 
 export default function App_temporary() {
 
